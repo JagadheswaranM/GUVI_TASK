@@ -1,38 +1,31 @@
 <?php
+require 'C:\xampp\htdocs\mongodbphp\vendor\autoload.php'; 
 
-// Define MongoDB connection URL and database name
-$url = 'mongodb://localhost:27017';
-$dbName = 'xyz';
+$client = new MongoDB\Client('mongodb://localhost:27017/');
+$companydb = $client->companydb;
+$empcollection = $companydb->empcollection;
 
-// Connect to mongdb.Seeing th comment don't judge i'm copying code.It's for my understanding.
-$client = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-var_dump($client);
+$empcollection=$client->selectCollection($companydb,'empcollection');
 
-// Get the "users" collection
-$users = $client->selectCollection($dbName, 'users');
+if(isset($_POST['submit'])){
+    $userData=[
+        $firstname = $_POST['firstname'],
+        $Lastname= $_POST['Lastname'],
+        $Date_of_Birth= $_POST['Date_of_Birth'],
+        $NameoftheOrganisation = $_POST['NameoftheOrganisation'],
+        $Educationalqualification = $_POST['Educationalqualification'],
+        $YearofPassing = $_POST['YearofPassing'],
+        $MobileNumber = $_POST['MobileNumber'],
+        $email = $_POST['email']
+    ];
 
-// Check if the signup form was submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Get the user data from the request body
-  $userData = [
-    'firstname' => $_POST['firstname'],
-    'Lastname' => $_POST['Lastname'],
-    'Date_of_Birth' => $_POST['Date of Birth'],
-    'Name of the Organisation' => $_POST['Name of the Organisation'],
-    'Educational qualification' => $_POST['Educational qualification'],
-    'Year of Passing' => $_POST['Year of Passing'],
-    'Mobile Number' => $_POST['Mobile Number'],
-    'email' => $_POST['email'],
+    $result=$empcollection->insertOne($userData);
 
-  ];
-
-  // Insert the new user
-  $result = $users->insertOne($userData);
-
-  if ($result->getInsertedCount() === 1) {
-    echo 'User created successfully';
-  } else {
-    echo 'Failed to create user';
-  }
+    if($result->getInsertedCount()==1){
+        echo'Created successfully';
+    }else{
+        echo'Failed';
+    }
 }
+
 ?>
