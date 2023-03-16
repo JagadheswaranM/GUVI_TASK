@@ -1,0 +1,80 @@
+<?php include("register.php");?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Register</title>
+    <link href="css/register.css" rel="stylesheet">   
+  </head>
+  <body>
+    <!-- <?php
+         include 'php/register.php';
+    ?> -->
+     
+   <section class  ="Form my-4 mx-5">
+    <div class="container">
+        <div class="row no-gutters">
+        <div class="row">
+            <div class="col-lg-5">
+                <img src=".\assets.\login.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-7 px-5 pt-5">
+                <form id="signup-form" onsubmit="return validate()" action="php\register.php" method="post">
+                   <center> <h2>Register</h2> </center>
+                <p>Create your account</p>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control my-2 p-3" id = Username name="Username" placeholder="UserName">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="Email" class="form-control my-2 p-3" id="Email" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="pass" class="form-control my-2 p-3" id="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="repassword" name="confirm_password" class="form-control my-2 p-3" id="confirm_password" placeholder="Confirm Password">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="">
+                        I accept the <a href="#">Terms of use</a> & <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+             <!-- <div class="register">
+                <center><button ><a href="login.html" target="_blank" >register</a></button></center>
+                 </div>  -->
+               <center> <input type="submit" name="submit_btn" class="btn .btn-block btn-dark mt-3 mb-3" ></center>
+               <!-- <center><h6>Already have an account? <a href="login.html" target="_blank">signin</a></h6></center> -->
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+   </section>
+   
+   
+  
+    
+    
+    <!-- <script>
+    function myFunction() {
+      alert("Hello! I am an alert box!");
+    }
+    </script> -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+</body>
+</html>
